@@ -6,6 +6,8 @@ import { MaterialModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 
+import { LoginService } from './services/login.service';
+
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,7 +25,9 @@ import { LoginComponent } from './components/login/login.component';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+  LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
