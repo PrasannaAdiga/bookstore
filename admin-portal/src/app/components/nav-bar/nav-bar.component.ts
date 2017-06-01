@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,16 +8,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  
+
   private loggedIn = false;
-  
-  constructor() { }
+
+  constructor(private loginService:LoginService, private router:Router) { }
+
+  toggleDisplay() {
+  	this.loggedIn = !this.loggedIn;
+  }
+
+  logout() {
+    this.loginService.logout().subscribe(
+      res => {
+        location.reload();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    this.router.navigate(['/']);
+  }
 
   ngOnInit() {
-  }
-  
-  toggleDisplay() {
-    this.loggedIn = !this.loggedIn;
+    this.loginService.checkSession().subscribe(
+      res => {
+        this.loggedIn=true;
+      },
+      error => {
+        this.loggedIn=false;
+      }
+    );
   }
 
 }

@@ -23,7 +23,7 @@ import { LoginComponent } from './components/login/login.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
+    routing,app.routing.ts
     MaterialModule,
     BrowserAnimationsModule
   ],
