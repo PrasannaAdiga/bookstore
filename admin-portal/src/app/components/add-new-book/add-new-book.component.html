@@ -3,7 +3,7 @@
 		<h3 style="margin-top: 30px;">New Book Information <span style="font-size:small">* is a required field</span></h3>
 
 		<form (ngSubmit)="onSubmit()">
-			<md-grid-list cols="12" rowHeight="60px">
+			<md-grid-list cols="4" rowHeight="60px">
 				<md-grid-tile [colspan]="4" [rowspan]="1">
 					<md-input-container>
 						<input mdInput id="title" type="text" required [(ngModel)]="newBook.title" name="title" placeholder="Title">
@@ -119,8 +119,7 @@
 			</md-grid-list>
 		</form>
 	</div>
-	<div class="row" [hidden]="!bookAdded"
-	>
+	<div class="row" [hidden]="!bookAdded">
 		<h3>Book added successfully!</h3>
 	</div>
 </div>
