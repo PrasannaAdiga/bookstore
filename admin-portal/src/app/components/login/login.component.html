@@ -1,5 +1,5 @@
 <div class="container">
-	<div [hidden]="loggedIn">
+	<div *ngIf="!loggedIn">
 		<md-grid-list cols="6" [style.margin-top]="'20px'">
 			<md-grid-tile [colspan]="1"></md-grid-tile>
 			<md-grid-tile [colspan]="4">
@@ -16,7 +16,7 @@
 
 		</md-grid-list>
 	</div>
-	<div [hidden]="!loggedIn">
+	<div *ngIf="loggedIn">
 		<h2>You have logged in!</h2>
 	</div>
 </div>

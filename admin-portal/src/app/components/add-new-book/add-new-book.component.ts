@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 import {AddBookService} from '../../services/add-book.service';
+import { LoginService } from '../../services/login.service';
 import {UploadImageService} from '../../services/upload-image.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-new-book',
@@ -14,7 +16,8 @@ export class AddNewBookComponent implements OnInit {
   public newBook: Book = new Book();
   public bookAdded = false;
 
-  constructor(private addBookService: AddBookService, private uploadImageService:UploadImageService) { }
+  constructor(private addBookService: AddBookService, public uploadImageService: UploadImageService,
+    private loginService: LoginService, private router: Router) { }
 
   onSubmit() {
     this.addBookService.sendBook(this.newBook).subscribe(
@@ -39,6 +42,14 @@ export class AddNewBookComponent implements OnInit {
     this.newBook.category = 'Management';
     this.newBook.language = 'english';
     this.newBook.format = 'paperback';
+
+    this.loginService.checkSession().subscribe(
+      res => {
+      },
+      error => {
+        this.router.navigate(['/']);
+      }
+    );
   }
 
 }

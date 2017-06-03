@@ -9,13 +9,9 @@ import {Router} from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  private loggedIn = false;
+  public loggedIn = false;
 
-  constructor(private loginService:LoginService, private router:Router) { }
-
-  toggleDisplay() {
-  	this.loggedIn = !this.loggedIn;
-  }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   logout() {
     this.loginService.logout().subscribe(
@@ -26,17 +22,16 @@ export class NavBarComponent implements OnInit {
         console.log(error);
       }
     );
-
     this.router.navigate(['/']);
   }
 
   ngOnInit() {
     this.loginService.checkSession().subscribe(
       res => {
-        this.loggedIn=true;
+        this.loggedIn = true;
       },
       error => {
-        this.loggedIn=false;
+        this.loggedIn = false;
       }
     );
   }

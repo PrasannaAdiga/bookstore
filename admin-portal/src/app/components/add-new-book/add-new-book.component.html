@@ -1,5 +1,5 @@
 <div class="container">
-	<div [hidden]="bookAdded">
+	<div *ngIf="!bookAdded">
 		<h3 style="margin-top: 30px;">New Book Information <span style="font-size:small">* is a required field</span></h3>
 
 		<form (ngSubmit)="onSubmit()">
@@ -119,7 +119,7 @@
 			</md-grid-list>
 		</form>
 	</div>
-	<div class="row" [hidden]="!bookAdded">
+	<div class="row" *ngIf="bookAdded">
 		<h3>Book added successfully!</h3>
 	</div>
 </div>
