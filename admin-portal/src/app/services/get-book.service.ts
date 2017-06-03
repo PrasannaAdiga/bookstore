@@ -8,7 +8,7 @@ export class GetBookService {
   constructor(private http: Http) { }
 
   getBook(id: number) {
-    const url = 'http://localhost:8181/book/' + id;
+    const url = 'http://localhost:8181/books/' + id;
     const headers = new Headers ({
       'Content-Type': 'application/json',
       'x-auth-token' : localStorage.getItem('xAuthToken')
