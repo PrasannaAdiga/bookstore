@@ -11,7 +11,7 @@ import {AddBookService} from '../../services/add-book.service';
 export class AddNewBookComponent implements OnInit {
 
   public newBook: Book = new Book();
-  public bookAdded: boolean;
+  public bookAdded = false;
 
   constructor(private addBookService: AddBookService) { }
 

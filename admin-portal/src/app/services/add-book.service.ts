@@ -5,10 +5,10 @@ import {Book} from '../models/book';
 @Injectable()
 export class AddBookService {
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) { }
 
   sendBook(book: Book) {
-    const url = 'http://localhost:8181/book/add';
+    const url = 'http://localhost:8181/books';
 
     const headers = new Headers ({
       'Content-Type': 'application/json',
