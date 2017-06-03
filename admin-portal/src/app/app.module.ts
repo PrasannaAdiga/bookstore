@@ -10,6 +10,7 @@ import 'hammerjs';
 import { LoginService } from './services/login.service';
 import { AddBookService } from './services/add-book.service';
 import { UploadImageService } from './services/upload-image.service';
+import { GetBookListService } from './services/get-book-list.service';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -34,9 +35,10 @@ import { BookListComponent } from './components/book-list/book-list.component';
     BrowserAnimationsModule
   ],
   providers: [
-  LoginService,
-  AddBookService,
-  UploadImageService
+    LoginService,
+    AddBookService,
+    UploadImageService,
+    GetBookListService
   ],
   bootstrap: [AppComponent]
 })

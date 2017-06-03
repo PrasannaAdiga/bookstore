@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Book} from '../../models/book';
+import {Router} from '@angular/router';
+import {LoginService} from '../../services/login.service';
+import {GetBookListService} from '../../services/get-book-list.service';
 
 @Component({
   selector: 'app-book-list',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
 
-  constructor() { }
+  private selectedBook: Book;
+  private checked: boolean;
+  private bookList: Book[];
+  private allChecked: boolean;
+  private removeBookList: Book[] = new Array();
+
+  constructor(private getBookListService: GetBookListService, private router: Router) { }
+
+  getBookList() {
+    this.getBookListService.getBookList().subscribe(
+      res => {
+        console.log(res.json());
+        this.bookList = res.json();
+      },
+      error => {
+        console.log(error);
+      }
+      );
+  }
 
   ngOnInit() {
+    this.getBookList();
   }
 
 }
