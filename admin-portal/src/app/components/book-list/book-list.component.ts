@@ -17,7 +17,7 @@ export class BookListComponent implements OnInit {
   private allChecked: boolean;
   private removeBookList: Book[] = new Array();
 
-  constructor(private getBookListService: GetBookListService, private router: Router) { }
+  constructor(private getBookListService: GetBookListService) { }
 
   getBookList() {
     this.getBookListService.getBookList().subscribe(
