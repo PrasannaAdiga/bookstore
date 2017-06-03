@@ -11,6 +11,7 @@ import { LoginService } from './services/login.service';
 import { AddBookService } from './services/add-book.service';
 import { UploadImageService } from './services/upload-image.service';
 import { GetBookListService } from './services/get-book-list.service';
+import { GetBookService } from './services/get-book.service';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -40,7 +41,8 @@ import { ViewBookComponent } from './components/view-book/view-book.component';
     LoginService,
     AddBookService,
     UploadImageService,
-    GetBookListService
+    GetBookListService,
+    GetBookService
   ],
   bootstrap: [AppComponent]
 })

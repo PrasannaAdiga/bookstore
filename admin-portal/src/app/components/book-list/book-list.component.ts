@@ -17,7 +17,7 @@ export class BookListComponent implements OnInit {
   private allChecked: boolean;
   private removeBookList: Book[] = new Array();
 
-  constructor(private getBookListService: GetBookListService) { }
+  constructor(private getBookListService: GetBookListService, private router:Router) { }
 
   getBookList() {
     this.getBookListService.getBookList().subscribe(
@@ -29,6 +29,11 @@ export class BookListComponent implements OnInit {
         console.log(error);
       }
       );
+  }
+
+  onSelect(book: Book) {
+    this.selectedBook = book;
+    this.router.navigate(['/viewBook', this.selectedBook.id]);
   }
 
   ngOnInit() {
