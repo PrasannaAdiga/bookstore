@@ -3,6 +3,7 @@ package com.bookstore.resource;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
@@ -45,6 +46,16 @@ public class BookResource {
 	@RequestMapping(value="/books", method=RequestMethod.PUT)
 	public Book updateBook(@RequestBody Book book) {
 		return bookService.save(book);
+	}
+	
+	@RequestMapping(value="/books/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<String> remove(@PathVariable("id") String id) throws IOException {
+		bookService.removeOne(Long.parseLong(id));
+		String fileName = id+".png";
+		
+		Files.delete(Paths.get("src/main/resources/static/image/book/"+fileName));
+		
+		return new ResponseEntity<String>("Remove Success!", HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/books/{id}", method=RequestMethod.GET)
