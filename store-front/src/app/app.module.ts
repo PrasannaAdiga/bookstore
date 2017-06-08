@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
+import { routing } from './app.routing';
 import 'hammerjs';
 
 
@@ -20,7 +21,8 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
